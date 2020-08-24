@@ -25,7 +25,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         tree \
         curl \
         wget \
-        tmux \
         make \
         && \
 # Install custom packages
