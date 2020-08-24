@@ -6,9 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - USER=redshore
-        - GROUP=redshore
-        - PASSWD=redshore
+        - USER=devel
+        - GROUP=devel
+        - PASSWD=devel
         - UID=1000
         - GID=1000
     ports:
@@ -16,9 +16,9 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - ./workspace:/home/redshore/workspace:cached
-      - ./configs/.zsh_history:/home/redshore/.zsh_history:cached
-      - ./configs/authorized_keys:/home/redshore/.ssh/authorized_keys:cached
+      - ./workspace:/home/devel/workspace:cached
+      - ./configs/.zsh_history:/home/devel/.zsh_history:cached
+      - ./configs/authorized_keys:/home/devel/.ssh/authorized_keys:cached
       - ./configs/ssh_host_key/ssh_host_dsa_key:/etc/ssh/ssh_host_dsa_key
       - ./configs/ssh_host_key/ssh_host_dsa_key.pub:/etc/ssh/ssh_host_dsa_key.pub:ro
       - ./configs/ssh_host_key/ssh_host_ecdsa_key:/etc/ssh/ssh_host_ecdsa_key:ro
