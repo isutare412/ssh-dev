@@ -18,6 +18,7 @@ services:
     volumes:
       - ./workspace:/home/redshore/workspace:cached
       - ./configs/authorized_keys:/home/redshore/.ssh/authorized_keys:cached
+      - ./configs/.zsh_history:/home/redshore/.zsh_history:cached
     image: redshore/workspace
     hostname: workspace
     container_name: workspace
