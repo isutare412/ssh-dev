@@ -39,8 +39,22 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 ENV TZ=Asia/Seoul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# Generate SSH keys
-# RUN /usr/bin/ssh-keygen -A
+# Set prompt color
+ENV TERM=xterm-256color
+
+##########################################################################
+# SSHD settings
+##########################################################################
+
+# Copy SSH host keys
+COPY configs/ssh_host_key/ssh_host_dsa_key /etc/ssh/ssh_host_dsa_key
+COPY configs/ssh_host_key/ssh_host_dsa_key.pub /etc/ssh/ssh_host_dsa_key.pub
+COPY configs/ssh_host_key/ssh_host_ecdsa_key /etc/ssh/ssh_host_ecdsa_key
+COPY configs/ssh_host_key/ssh_host_ecdsa_key.pub /etc/ssh/ssh_host_ecdsa_key.pub
+COPY configs/ssh_host_key/ssh_host_ed25519_key /etc/ssh/ssh_host_ed25519_key
+COPY configs/ssh_host_key/ssh_host_ed25519_key.pub /etc/ssh/ssh_host_ed25519_key.pub
+COPY configs/ssh_host_key/ssh_host_rsa_key /etc/ssh/ssh_host_rsa_key
+COPY configs/ssh_host_key/ssh_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key.pub
 
 # SSH daemon
 RUN mkdir /var/run/sshd
@@ -70,9 +84,6 @@ RUN groupadd -g ${GID} ${GROUP} && \
 
 # Set user to use from below
 USER ${USER}
-
-# Set prompt color
-ENV TERM=xterm-256color
 
 # Copy setting files
 COPY --chown=${USER}:${GROUP} configs/.p10k.zsh ${HOME}

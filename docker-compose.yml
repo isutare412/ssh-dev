@@ -16,17 +16,9 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - ./workspace:/home/devel/workspace:cached
-      - ./configs/.zsh_history:/home/devel/.zsh_history:cached
-      - ./configs/authorized_keys:/home/devel/.ssh/authorized_keys:cached
-      - ./configs/ssh_host_key/ssh_host_dsa_key:/etc/ssh/ssh_host_dsa_key
-      - ./configs/ssh_host_key/ssh_host_dsa_key.pub:/etc/ssh/ssh_host_dsa_key.pub:ro
-      - ./configs/ssh_host_key/ssh_host_ecdsa_key:/etc/ssh/ssh_host_ecdsa_key:ro
-      - ./configs/ssh_host_key/ssh_host_ecdsa_key.pub:/etc/ssh/ssh_host_ecdsa_key.pub:ro
-      - ./configs/ssh_host_key/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key:ro
-      - ./configs/ssh_host_key/ssh_host_ed25519_key.pub:/etc/ssh/ssh_host_ed25519_key.pub:ro
-      - ./configs/ssh_host_key/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key:ro
-      - ./configs/ssh_host_key/ssh_host_rsa_key.pub:/etc/ssh/ssh_host_rsa_key.pub:ro
+      - ./workspace:/home/devel/workspace:delegated
+      - ./configs/.zsh_history:/home/devel/.zsh_history:delegated
+      - ./configs/authorized_keys:/home/devel/.ssh/authorized_keys:delegated
     image: redshore/workspace
     hostname: workspace
     container_name: workspace
