@@ -14,7 +14,11 @@ ARG APT_INSTALL="apt-get install -y --no-install-recommends"
 # Install tools
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive ${APT_INSTALL} \
+        ca-certificates \
+        libssl-dev \
+        openssh-server \
         sudo \
+        less \
         tzdata \
         git \
         vim \
@@ -23,8 +27,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         wget \
         tmux \
         make \
-        ca-certificates \
-        openssh-server \
         && \
 # Install custom packages
     DEBIAN_FRONTEND=noninteractive ${APT_INSTALL} \
@@ -74,7 +76,8 @@ USER ${USER}
 ENV TERM=xterm-256color
 
 # Copy setting files
-COPY --chown=${USER}:${GROUP} configs/.p10k.zsh ${HOME}/.p10k.zsh
+COPY --chown=${USER}:${GROUP} configs/.p10k.zsh ${HOME}
+COPY --chown=${USER}:${GROUP} configs/.gitconfig ${HOME}
 
 # Install ZSH with oh-my-zsh, Powerlevel10k theme
 # Fonts: https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
