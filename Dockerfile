@@ -41,7 +41,7 @@ ENV TZ=Asia/Seoul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Generate SSH keys
-RUN /usr/bin/ssh-keygen -A
+# RUN /usr/bin/ssh-keygen -A
 
 # SSH daemon
 RUN mkdir /var/run/sshd
