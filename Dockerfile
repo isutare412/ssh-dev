@@ -29,7 +29,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         && \
 # Install custom packages
     DEBIAN_FRONTEND=noninteractive ${APT_INSTALL} \
-        python3
+        erlang
 
 ##########################################################################
 # System settings
