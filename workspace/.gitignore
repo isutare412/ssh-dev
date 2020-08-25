@@ -1,0 +1,4 @@
+# Ignore all in workspace
+*
+# Except this file
+!.gitignore
