@@ -8,7 +8,7 @@ ENV LANG=C.UTF-8
 ARG APT_INSTALL="apt-get install -y --no-install-recommends"
 
 ##########################################################################
-# Packages
+# Base Packages
 ##########################################################################
 
 # Install tools
@@ -25,11 +25,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         tree \
         curl \
         wget \
-        make \
-        && \
-# Install custom packages
-    DEBIAN_FRONTEND=noninteractive ${APT_INSTALL} \
-        erlang
+        make
 
 ##########################################################################
 # System settings
@@ -97,5 +93,15 @@ RUN sh -c "${HOME}/.scripts/install_zsh.sh ${USER} ${PASSWD}"
 # Clean up scripts
 RUN rm -rf ${HOME}/.scripts
 
+##########################################################################
+# Custom Packages
+##########################################################################
+
+# Set user to root
 USER root
+
+# Install custom packages
+RUN DEBIAN_FRONTEND=noninteractive ${APT_INSTALL} \
+        erlang
+
 ENTRYPOINT [ "/usr/sbin/sshd", "-D" ]
