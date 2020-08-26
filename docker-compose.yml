@@ -19,6 +19,7 @@ services:
       - ./workspace:/home/devel/workspace:delegated
       - ./configs/.zsh_history:/home/devel/.zsh_history:delegated
       - ./configs/authorized_keys:/home/devel/.ssh/authorized_keys:delegated
+      - ./configs/.vscode-server:/home/devel/.vscode-server:delegated
     image: redshore/workspace
     hostname: workspace
     container_name: workspace

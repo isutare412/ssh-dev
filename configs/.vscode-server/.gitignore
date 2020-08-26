@@ -1,0 +1,4 @@
+# Ignore all in VSCode server files
+*
+# Except this file
+!.gitignore
