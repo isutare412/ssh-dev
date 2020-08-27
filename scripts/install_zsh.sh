@@ -4,7 +4,7 @@ set -e
 USER=$1
 PASSWD=$2
 THEME=powerlevel10k/powerlevel10k
-PLUGINS="git"
+PLUGINS="git zsh-autosuggestions zsh-syntax-highlighting"
 
 echo
 echo "Installing Oh-My-Zsh with:"
@@ -100,6 +100,9 @@ for plugin in $PLUGINS; do
     fi
     plugin_list="${plugin_list}$plugin_name "
 done
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 zshrc_template "$HOME" "$THEME" "$plugin_list" > $HOME/.zshrc
 
