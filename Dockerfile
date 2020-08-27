@@ -84,11 +84,17 @@ USER ${USER}
 # Copy setting files
 COPY --chown=${USER}:${GROUP} configs/.p10k.zsh ${HOME}
 COPY --chown=${USER}:${GROUP} configs/.gitconfig ${HOME}
+COPY --chown=${USER}:${GROUP} configs/.vimrc ${HOME}
 
 # Install ZSH with oh-my-zsh, Powerlevel10k theme
 # Fonts: https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
 COPY --chown=${USER}:${GROUP} scripts ${HOME}/.scripts
 RUN sh -c "${HOME}/.scripts/install_zsh.sh ${USER} ${PASSWD}"
+
+# Install vim-plug and plugins
+RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim && \
+    vim +PlugInstall +qall > /dev/null
 
 # Clean up scripts
 RUN rm -rf ${HOME}/.scripts
