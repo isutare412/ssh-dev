@@ -11,11 +11,11 @@ Customizable dockerized ssh server for development.
 # How to use
 
 1. Set following build arguments in `docker-compose.yml`.
-   * USER=\<ssh user\>
-   * GROUP=\<ssh group for user\>
-   * PASSWD=\<ssh password for user\>
-   * UID=\<ssh user uid\>
-   * GID=\<ssh user gid\>
+  * USER=\<ssh user\>
+  * GROUP=\<ssh group for user\>
+  * PASSWD=\<ssh password for user\>
+  * UID=\<ssh user uid\>
+  * GID=\<ssh user gid\>
 
 2. Modify `Dockerfile` by adding packages you need below
    line "# Install custom packages".
@@ -39,3 +39,22 @@ sudo docker-compose build
 ```sh
 docker-compose up -d
 ```
+
+# Package Lists
+
+* Linux Packages
+  + zsh
+  + git
+  + vim
+  + tree
+  + make
+  + wget
+  + curl
+
+* Zsh Plugins
+  + zsh-autosuggestions
+  + zsh-syntax-highlighting
+
+* Vim plugins (with vim-plug)
+  + vim-airline/vim-airline
+  + vim-airline/vim-airline-themes
