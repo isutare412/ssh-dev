@@ -58,10 +58,10 @@ docker-compose up -d
   + wget
   + curl
 
-* Zsh Plugins
+* Oh-my-zsh Plugins
   + zsh-autosuggestions
   + zsh-syntax-highlighting
 
-* Vim plugins (with vim-plug)
+* Vim-Plug plugins
   + vim-airline/vim-airline
   + vim-airline/vim-airline-themes
