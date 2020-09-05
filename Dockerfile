@@ -71,6 +71,7 @@ ARG PASSWD
 ARG UID=1000
 ARG GID=1000
 ARG HOME=/home/${USER}
+ARG INSTALL_ZSH=false
 
 # Add an user if given
 RUN groupadd -g ${GID} ${GROUP} && \
@@ -86,10 +87,14 @@ COPY --chown=${USER}:${GROUP} configs/.p10k.zsh ${HOME}
 COPY --chown=${USER}:${GROUP} configs/.gitconfig ${HOME}
 COPY --chown=${USER}:${GROUP} configs/.vimrc ${HOME}
 
+# Copy scripts
+COPY --chown=${USER}:${GROUP} scripts ${HOME}/.scripts
+
 # Install ZSH with oh-my-zsh, Powerlevel10k theme
 # Fonts: https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
-COPY --chown=${USER}:${GROUP} scripts ${HOME}/.scripts
-RUN sh -c "${HOME}/.scripts/install_zsh.sh ${USER} ${PASSWD}"
+RUN if [ "${INSTALL_ZSH}" = "true" ]; then \
+        sh -c "${HOME}/.scripts/install_zsh.sh ${USER} ${PASSWD}"; \
+    fi
 
 # Install vim-plug and plugins
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

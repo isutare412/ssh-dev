@@ -11,6 +11,7 @@ services:
         - PASSWD=devel
         - UID=1000
         - GID=1000
+        - INSTALL_ZSH=false
     ports:
       - "4171:22"
     environment:
