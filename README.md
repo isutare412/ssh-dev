@@ -31,7 +31,8 @@ Customizable dockerized ssh server for development.
 4. Generate SSH host keys. (Need only once)
 
 ```sh
-sudo configs/ssh_host_key/generate.sh
+cd configs/ssh_host_key
+sudo ./generate.sh
 ```
 
 5. Build docker image.
