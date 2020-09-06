@@ -14,6 +14,7 @@ ARG APT_INSTALL="apt-get install -y --no-install-recommends"
 # Install tools
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive ${APT_INSTALL} \
+        build-essential \
         ca-certificates \
         libssl-dev \
         openssh-server \
