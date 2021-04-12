@@ -114,6 +114,6 @@ USER root
 
 # Install custom packages
 RUN DEBIAN_FRONTEND=noninteractive ${APT_INSTALL} \
-        erlang
+    golang
 
 ENTRYPOINT [ "/usr/sbin/sshd", "-D" ]
