@@ -1,10 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
-" call plug#begin('~/.vim/plugged')
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'tpope/vim-surround'
-" call plug#end()
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-surround'
+call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
