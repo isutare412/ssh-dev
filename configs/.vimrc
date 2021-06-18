@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sleuth'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -49,18 +50,19 @@ set scrolloff=2 " leave lines before/after carret
 set wrap " enable word wrapping
 set linebreak " wrap by word-size
 set backspace=indent,eol,start " backspace can delete over inserted position
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< " placeholder for various whitespaces
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< " symbol for various whitespaces
+set listchars=eol:¬,tab:>·,trail:␣,extends:>,precedes:< " symbol for various whitespaces
 set list " render listchars
-set autoindent " auto indent
-set cindent " auto indent for C
-set smartindent
-set smarttab
 set nowrapscan " do not loop back when you reach end in searching
 set splitright " sp right
 set splitbelow " vs below
 set ruler " show carret row, column in command line
 set undofile " make undo file (*.un~)
 set laststatus=2 " always show status line
+" set autoindent " auto indent
+" set cindent " auto indent for C
+" set smartindent
+" set smarttab
 set expandtab " translate tab to space
 set tabstop=4 " tab size
 set softtabstop=4 " tab size (more generous)
