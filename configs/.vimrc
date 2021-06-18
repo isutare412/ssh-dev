@@ -40,11 +40,11 @@ set term=xterm-256color " 256 color settings
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible " no compatible with VI
-set clipboard=unnamed " share clipboard with OS
+" set clipboard=unnamed " share clipboard with OS
 set number " show row number
 set rnu " show row number relatively based on carret
 set scrolloff=2 " leave lines before/after carret
-"set colorcolumn=79 " maximum line length
+" set colorcolumn=79 " maximum line length
 set wrap " enable word wrapping
 set linebreak " wrap by word-size
 set backspace=indent,eol,start " backspace can delete over inserted position
