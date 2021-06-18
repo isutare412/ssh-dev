@@ -49,6 +49,8 @@ set scrolloff=2 " leave lines before/after carret
 set wrap " enable word wrapping
 set linebreak " wrap by word-size
 set backspace=indent,eol,start " backspace can delete over inserted position
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< " placeholder for various whitespaces
+set list " render listchars
 set autoindent " auto indent
 set cindent " auto indent for C
 set smartindent
